@@ -29,7 +29,7 @@ Add this in your specific page .razor. If you need to encrypt/decrypt in diferen
 Converts textplain to a ciphertext and vice versa
 ``` csharp
 CryptoResult encrypted = await Crypto.EncryptAsync("The krabby patty secret formula is...");
-//encrypted.Value returns: emw4a0xHNDQ3WnppU9jxTBZ4SseC1/foz4aKC+oA3nZZHvNIwVXwIy0kpm68N/SgzjpL6dlihEz8q8opjbc9OcE=
+//encrypted.Value returns: emw4a0xHNDQ3WnppU9jxTBZ4SseC1/fkpm68N/SgzjpL6dlihEz8q8opjbc9OcE=
 
 string decrypted = await Crypto.DecryptAsync(encrypted.Value);
 //decrypted returns: "The krabby patty secret formula is..."
@@ -37,7 +37,7 @@ string decrypted = await Crypto.DecryptAsync(encrypted.Value);
 Converts object class to a ciphertext and vice versa
 ``` csharp
 CryptoResult encrypted = await Crypto.EncryptAsync(new myModel{name="Bob", age=36});
-//encrypted.Value returns: MFA5QlJsWDNlZXY0cEE8EI5O74iI/4pMr5k3gjKqWSnVFU6nEy7ypBreOW7jg9Sd+VPHmnMcgs5pivb9FI4/CVfoX...
+//encrypted.Value returns: MFA5QlJsWDNlZXY0cEE8EI5O74iI/4pMr59Sd+VPHmnMcgs5pivb9FI4/CVfoX...
 
 string decrypted = await Crypto.DecryptAsync(encrypted.Value);
 //decrypted returns: '{"name":"Bob","age":36}'
@@ -48,7 +48,7 @@ myModel decrypted = await Crypto.DecryptAsync<myModel>(encrypted.Value);
 Converts a list of objects  to a ciphertext and vice versa
 ``` csharp
 CryptoResult encrypted = await Crypto.EncryptAsync(myListModel);
-//encrypted.Value returns: OHRCMUJ2MDhLc2JTDerrg1DxyO0/Src7dyjRc+a4ulWYspoC519b1WcRuGo3u3+JuG+Lp8MLTnsXjXXklxQ9zQ7jeN...
+//encrypted.Value returns: OHRCMUJ2MDhLc2JTDerrg1DxyO0/Srcu3+JuG+Lp8MLTnsXjXXklxQ9zQ7jeN...
 
 string decrypted = await Crypto.DecryptAsync(encrypted.Value);
 //decrypted returns: '[{"name":"Bob","age":36},{"name":"Pat","age":38}]'
@@ -93,8 +93,8 @@ builder.Services.AddSubtleCrypto();
 Example using a single string
 ``` csharp
 CryptoResult encrypted = await Crypto.EncryptAsync("The krabby patty secret formula is...");
-//encrypted.Value returns: WEs5SHJCMWN6ZlZsjN7KgUEJB6cu5eLy4tzsPZ2IHuegOW9DdEik+B+nY/aUnHORacAVmaX6F/xKQgLs0p20sHY=
-//encrypted.Secret.Key returns: RRR0dYZ6eCHX91nzkNx9SqMPOt3rBxZqV5zGPAN66p5EaYgATzW3j7FoDIC3Hu04LdKT4cKnpMBUdEhLVoj...
+//encrypted.Value returns: WEs5SHJCMWN6ZlZsjN7KgUEJB6cu5eLy4tzORacAVmaX6F/xKQgLs0p20sHY=
+//encrypted.Secret.Key returns: RRR0dYZ6eCHX91nzkNx9oTzW3j7FoDIC3Hu04LdKT4cKnpMBUdEhLVoj...
 
 //To decrypt we need to ue CryptoInput model and set the ciphertext(Value) and the key
 string decrypted = await Crypto.DecryptAsync(new CryptoInput { Value = encrypted.Value, Key = encrypted.Secret.Key});
