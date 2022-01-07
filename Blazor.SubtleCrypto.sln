@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32002.185
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.SubtleCrypto", "Blazor.SubtleCrypto\Blazor.SubtleCrypto.csproj", "{EC639FBD-DB3C-4625-AB30-E6B36BD1C1FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC639FBD-DB3C-4625-AB30-E6B36BD1C1FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC639FBD-DB3C-4625-AB30-E6B36BD1C1FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC639FBD-DB3C-4625-AB30-E6B36BD1C1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC639FBD-DB3C-4625-AB30-E6B36BD1C1FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48BC9382-E291-49BA-A329-7040C217D897}
+	EndGlobalSection
+EndGlobal
