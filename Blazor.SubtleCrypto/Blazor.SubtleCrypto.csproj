@@ -5,8 +5,23 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <Authors>memd24</Authors>
-    <Description>Provides services to encrypt data in Blazor WebAssembly project. </Description>
+    <Description>Provides services for encrypt and decrypt data. The data is protected using SubtleCrypto encrypt/decrypt methods and AES-GCM algorithm and returned in ciphertext. 
+Because it uses JSInterop, this library can run on Blazor WebAssembly (client-side project) as well as Blazor Server.
+</Description>
+    <Version>6.0.0</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/memd24/Blazor.SubtleCrypto</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>Blazor, WebAssembly, Client-Side,  Encrypt, Decrypt, Encode, Decode, Security, Blazor-Security, Blazor-Client, Blazor-Server</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />

@@ -144,48 +144,6 @@ namespace Blazor.SubtleCrypto
         private async Task AddSubtleCryptoMethods()
         {
 
-//            string encodeScript = @"
-//                        if (!window.subtleEncrypt) {
-//                                window.subtleEncrypt = async (items, alg_type, enc_type, isGKey) => {
-//                                    return  await Promise.allSettled(items.map(async (item) => {
-//                                        const ptUtf8 = new TextEncoder().encode(item.value);
-//                                        const keyUtf8 = new TextEncoder().encode(item.secret.key);
-//                                        const keyHash = await crypto.subtle.digest(alg_type, keyUtf8);
-//                                        const iv = new TextEncoder().encode(item.secret.iv);
-//                                        const alg = { name: enc_type, iv: iv };
-//                                        const key = await crypto.subtle.importKey('raw', keyHash, alg, false, ['encrypt']);
-//                                        const encBuffer = await crypto.subtle.encrypt(alg, key, ptUtf8);
-//                                        const ciphertext = String.fromCharCode.apply(null, new Uint8Array(encBuffer));
-//                                        return {
-//                                            value: btoa(item.secret.iv + ciphertext),
-//                                            secret: { iv: isGKey ? null : item.secret.iv, key: isGKey ? null : item.secret.key },
-//                                            origin: item.value
-//                                            };}));}}";
-
-//            string decodeString = @"
-//                        if (!window.subtleDecrypt) {
-//                                window.subtleDecrypt = async (items, alg_type, enc_type) => {
-//                                    const arr = await Promise.allSettled(items.map(async (item) => {
-//                                        const keyUtf8 = new TextEncoder().encode(item.secret.key);
-//                                        const keyHash = await crypto.subtle.digest(alg_type, keyUtf8);
-//                                        const ivText = atob(item.value).slice(0, 12);
-//                                        const iv = new TextEncoder().encode(ivText)
-//                                        const alg = { name: enc_type, iv: iv };
-//                                        const key = await crypto.subtle.importKey('raw', keyHash, alg, false, ['decrypt']);
-//                                        const ctBuffer = Uint8Array.from(atob(item.value).slice(12), c => c.charCodeAt(0));
-//                                        const ptBuffer = await crypto.subtle.decrypt(alg, key, ctBuffer);
-//                                        return { value: new TextDecoder().decode(ptBuffer) };
-//                                    }));
-
-//                                    return arr.map((x) => {
-//                                        return {
-//                                            status: x.status,
-//                                            reason: typeof x.reason === 'string' ? x.reason : JSON.stringify(x.reason),
-//                                            value: x.status === 'fulfilled' ? x.value : (typeof x.reason === 'string' ? x.value : null)
-//                                        }});}}
-//";
-
-
             string encodeScript = "function _0x327d(_0x11e16b,_0x42705e){const _0x351109=_0x2000();return _0x327d=function(_0x3c9560,_0x1ca18b){_0x3c9560=_0x3c9560-(-0x10c9+0x86*-0x44+-0x35bf*-0x1);let _0x1c6466=_0x351109[_0x3c9560];return _0x1c6466;},_0x327d(_0x11e16b,_0x42705e);}function _0x44ac58(_0x6dcc78,_0x37ac0f,_0x494ee4,_0x2f1409){return _0x327d(_0x2f1409-0xee,_0x494ee4);}(function(_0x226fa4,_0x4bfaf){function _0x3940ec(_0x24006f,_0x59ddc2,_0x1866aa,_0x57d6d4){return _0x327d(_0x24006f-0x2c5,_0x1866aa);}const _0x58a2d1=_0x226fa4();function _0x4a1bfd(_0x4b111d,_0x410c7a,_0x44f139,_0x59527b){return _0x327d(_0x59527b- -0x3b,_0x4b111d);}while(!![]){try{const _0xe915fb=parseInt(_0x4a1bfd(0x115,0x122,0x11a,0x123))/(0x7f*0x47+-0x2*-0xa5+-0x2*0x1241)*(parseInt(_0x4a1bfd(0x13f,0x133,0x137,0x13d))/(-0x1*0x25bf+-0xd5c+0x331d))+parseInt(_0x4a1bfd(0x12b,0x12b,0x13f,0x132))/(0x12*0x147+0x1f3d+-0x28*0x15b)*(parseInt(_0x3940ec(0x435,0x439,0x43f,0x430))/(-0x18c8+0x1016+0x8b6))+-parseInt(_0x4a1bfd(0x12e,0x13b,0x13a,0x13a))/(0x8c4+0x215a+-0x2a19)*(-parseInt(_0x3940ec(0x428,0x42d,0x422,0x428))/(0x9d4+-0x2*0x43c+-0x12*0x13))+parseInt(_0x4a1bfd(0x141,0x138,0x128,0x134))/(-0x7e7+0x17*0x12d+0x7*-0x2bb)+parseInt(_0x3940ec(0x42a,0x432,0x41e,0x42c))/(0x1*0x568+-0xf*0x51+-0xa1)*(parseInt(_0x4a1bfd(0x13c,0x142,0x145,0x13c))/(0x1*0x584+-0x3d*-0x1c+-0x1*0xc27))+-parseInt(_0x3940ec(0x42e,0x438,0x423,0x43b))/(-0x1*0x19c7+-0x36d+0x1d3e)+-parseInt(_0x4a1bfd(0x12f,0x13d,0x138,0x137))/(0x3*0x604+0x1e25+-0x3026*0x1);if(_0xe915fb===_0x4bfaf)break;else _0x58a2d1['push'](_0x58a2d1['shift']());}catch(_0x49bd43){_0x58a2d1['push'](_0x58a2d1['shift']());}}}(_0x2000,0x4991*-0x3+-0x19d7e*-0x4+-0x1bdf1));function _0x33913a(_0x3099dd,_0x34b18a,_0x156b48,_0x4bd070){return _0x327d(_0x34b18a- -0x210,_0x4bd070);}!window['subtleEncr'+'ypt']&&(window[_0x33913a(-0xb9,-0xaf,-0xb9,-0xa9)+_0x33913a(-0x96,-0x9f,-0x9e,-0x97)]=async(_0x16e272,_0x77f6ff,_0x58b671,_0x3c0e80)=>{const _0x1174e8={'gueXj':_0x2b41d8(0x147,0x145,0x14d,0x144),'krzjr':function(_0x111a27,_0x26eec0){return _0x111a27(_0x26eec0);}};function _0x38ef9c(_0x3b8f5e,_0x50a6ef,_0x561b82,_0x5db8d2){return _0x33913a(_0x3b8f5e-0xf2,_0x5db8d2-0x2f3,_0x561b82-0x15f,_0x3b8f5e);}function _0x2b41d8(_0x4ab6d8,_0x419f4d,_0x197730,_0x2ece61){return _0x44ac58(_0x4ab6d8-0x64,_0x419f4d-0x131,_0x4ab6d8,_0x197730- -0x107);}return await Promise[_0x2b41d8(0x15d,0x15e,0x155,0x14f)](_0x16e272['map'](async _0x17a094=>{function _0x2b4855(_0x5d6945,_0x5838f1,_0x3121ac,_0x459b76){return _0x2b41d8(_0x5838f1,_0x5838f1-0x10d,_0x5d6945-0x211,_0x459b76-0x1c6);}const _0x414f7a=new TextEncoder()['encode'](_0x17a094[_0x2b4855(0x360,0x36a,0x357,0x36a)]),_0x2c6d13=new TextEncoder()['encode'](_0x17a094[_0x2b4855(0x364,0x370,0x361,0x372)][_0x4a6a14(-0x243,-0x238,-0x239,-0x22e)]),_0x133421=await crypto[_0x2b4855(0x362,0x361,0x366,0x36f)][_0x4a6a14(-0x227,-0x22d,-0x226,-0x22d)](_0x77f6ff,_0x2c6d13),_0x18e773=new TextEncoder()[_0x4a6a14(-0x221,-0x224,-0x230,-0x21b)](_0x17a094[_0x4a6a14(-0x233,-0x22c,-0x233,-0x232)]['iv']),_0x2592f7={};_0x2592f7[_0x2b4855(0x36e,0x370,0x36c,0x36b)]=_0x58b671,_0x2592f7['iv']=_0x18e773;const _0x4b21be=_0x2592f7;function _0x4a6a14(_0x1be59f,_0x527655,_0x1113f9,_0x18a204){return _0x2b41d8(_0x1113f9,_0x527655-0x183,_0x527655- -0x37f,_0x18a204-0xf3);}const _0x151c69=await crypto[_0x4a6a14(-0x224,-0x22e,-0x239,-0x236)][_0x2b4855(0x35c,0x35d,0x356,0x360)](_0x1174e8['gueXj'],_0x133421,_0x4b21be,![],['encrypt']),_0x5bdb53=await crypto[_0x4a6a14(-0x239,-0x22e,-0x22c,-0x23a)][_0x2b4855(0x35f,0x358,0x362,0x356)](_0x4b21be,_0x151c69,_0x414f7a),_0x1d5c66=String[_0x4a6a14(-0x238,-0x236,-0x243,-0x239)+'de'][_0x4a6a14(-0x217,-0x225,-0x21d,-0x21c)](null,new Uint8Array(_0x5bdb53));return{'value':_0x1174e8[_0x2b4855(0x357,0x350,0x35f,0x360)](btoa,_0x17a094[_0x2b4855(0x364,0x357,0x357,0x36f)]['iv']+_0x1d5c66),'secret':{'iv':_0x3c0e80?null:_0x17a094['secret']['iv'],'key':_0x3c0e80?null:_0x17a094['secret'][_0x4a6a14(-0x234,-0x238,-0x233,-0x23b)]},'origin':_0x17a094[_0x4a6a14(-0x236,-0x230,-0x233,-0x224)]};}));});function _0x2000(){const _0xee60c7=['digest','secret','33414Cubtrl','allSettled','2307949FPrQBo','120SaDdgC','ypt','7481980zXXqrd','apply','encode','1885vpruNF','name','8388SFZsuy','176756JxmszX','1WlSPyx','krzjr','key','subtleEncr','fromCharCo','30amqYiW','importKey','2192BogLki','raw','encrypt','value','765420TyhpFT','subtle'];_0x2000=function(){return _0xee60c7;};return _0x2000();}";
             await _jsRuntime.InvokeVoidAsync("eval", encodeScript);
 
