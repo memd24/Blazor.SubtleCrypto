@@ -53,7 +53,7 @@ CryptoResult encrypted = await Crypto.EncryptAsync(myListModel);
 string decrypted = await Crypto.DecryptAsync(encrypted.Value);
 //decrypted returns: '[{"name":"Bob","age":36},{"name":"Pat","age":38}]'
 
-myModel decrypted = await Crypto.DecryptAsync<List<myModel>>(encrypted.Value);
+List<MyModel> decrypted = await Crypto.DecryptAsync<List<myModel>>(encrypted.Value);
 //decrypted returns a populated List<myModel> object
 ```
 Converts each string of a list into an individual ciphertext and vice versa
