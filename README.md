@@ -114,3 +114,18 @@ List<MyModel> decrypted = await Crypto.DecryptListAsync<MyModel>(cryptoInputs);
 
 
 
+### Note
+For Blazor WASM Net8 and later, it may require to modify rendermode or  execute ICryptoService injection after render.<br />
+Example
+``` csharp
+@code {
+    private ICryptoService? Crypto;
+    private async Task TestSubtleCrypto(){
+    Crypto = ServiceProvider.GetService<ICryptoService>();
+    if (Crypto is not null)
+        {
+            //do it..
+        }
+    }
+}
+```
