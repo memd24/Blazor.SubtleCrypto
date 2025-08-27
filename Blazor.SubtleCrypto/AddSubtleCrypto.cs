@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using Microsoft.JSInterop;
 
@@ -8,15 +9,14 @@ namespace Blazor.SubtleCrypto
     {
         public static IServiceCollection AddSubtleCrypto(this IServiceCollection services, Action<CryptoOptions> setup = null)
         {
-            if(setup != null)
+            if (setup != null)
                 services.Configure(setup);
 
-            
-            services.AddScoped<ICryptoService, CryptoService>(
+            services.TryAddScoped<ICryptoService>(
                    (ctx) =>
                    {
-                       
-                       var options = ctx.GetRequiredService<IOptions<CryptoOptions>> ();
+
+                       var options = ctx.GetRequiredService<IOptions<CryptoOptions>>();
                        var jsRuntime = ctx.GetService<IJSRuntime>();
                        var key = options.Value.Key;
 
